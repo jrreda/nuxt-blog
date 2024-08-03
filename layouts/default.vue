@@ -13,6 +13,9 @@
                             <nuxt-link to="/">Home</nuxt-link>
                         </li>
                         <li>
+                            <nuxt-link to="/create">Create</nuxt-link>
+                        </li>
+                        <li>
                             <nuxt-link to="/about">About</nuxt-link>
                         </li>
                         <li>
@@ -22,7 +25,6 @@
                 </div>
             </div>
         </nav>
-        
         <slot />
     </div>
 </template>
