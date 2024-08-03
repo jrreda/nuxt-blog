@@ -15,7 +15,7 @@
         </div>
 
         <!-- Post Preview -->
-        <div class="post-preview leading-relaxed mt-4">
+        <div class="post-preview leading-relaxed mt-4 line-clamp-3">
             {{ props.post.body }}
         </div>
 
