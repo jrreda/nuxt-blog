@@ -12,7 +12,7 @@
 
         <!-- Post Meta -->
         <div class="post-meta text-gray-700 flex items-center space-x-2">
-            <div>{{ post.created_at }}</div>
+            <div>{{ format(new Date(post.created_at), "MMMM dd, yyyy") }}</div>
             <div>&middot;</div>
             <div>{{ post.user.name }}</div>
         </div>
@@ -25,6 +25,7 @@
 </template>
 
 <script setup>
+    import { format } from "date-fns";
     const title = useState('title');
     const route = useRoute();
 
