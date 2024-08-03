@@ -28,5 +28,6 @@
     const title = useState('title');
     const route = useRoute();
 
-    const { data: post } = await useFetch(`http://nuxt-backend.test/api/post/${route.params.id}`);
+    // const { data: post } = await useFetch(`http://nuxt-backend.test/api/post/${route.params.id}`);
+    const post = await useNuxtApp().$apiFetch(`api/post/${route.params.id}`);
 </script>

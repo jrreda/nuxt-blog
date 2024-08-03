@@ -5,7 +5,9 @@
 </template>
 
 <script setup>
-const { data: posts } = await useFetch('/api/posts', {
-    baseURL: `http://nuxt-backend.test`,
-});
+// const { data: posts } = await useFetch('/api/posts', {
+//     baseURL: `http://nuxt-backend.test`,
+// });
+
+const posts = await useNuxtApp().$apiFetch('/api/posts');
 </script>
