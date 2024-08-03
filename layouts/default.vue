@@ -5,22 +5,18 @@
         <nav class="bg-white shadow text-lg px-6 py-6">
             <div class="container mx-auto flex items-center justify-between px-6">
                 <div>
-                    <nuxt-link to="/">Logo</nuxt-link>
+                    <NuxtLink to="/">Logo</NuxtLink>
                 </div>
                 <div>
-                    <ul class="flex space-x-12 px-3">
-                        <li>
-                            <nuxt-link to="/">Home</nuxt-link>
-                        </li>
-                        <li>
-                            <nuxt-link to="/create">Create</nuxt-link>
-                        </li>
-                        <li>
-                            <nuxt-link to="/about">About</nuxt-link>
-                        </li>
-                        <li>
-                            <nuxt-link to="/contact">Contact</nuxt-link>
-                        </li>
+                    <ul class="flex space-x-12">
+                        <li><NuxtLink to="/">Home</NuxtLink></li>
+                        <li><NuxtLink to="/login">Login</NuxtLink></li>
+                        <li><NuxtLink to="/register">Register</NuxtLink></li>
+                        <li><NuxtLink to="/my-info">My Info</NuxtLink></li>
+                        <li><NuxtLink to="/create">Create</NuxtLink></li>
+                        <li><NuxtLink to="/about">About</NuxtLink></li>
+                        <li><NuxtLink to="/contact">Contact</NuxtLink></li>
+                        <li><a href="#" @click.prevent="logout">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -30,11 +26,24 @@
 </template>
 
 <script setup>
-    const title = useState('title', () => "Nuxt 3 Blog");
+const title = useState('title', () => 'Nuxt 3 Blog')
+const { $apiFetch } = useNuxtApp()
+
+async function logout() {
+    try {
+        await $apiFetch('/logout', {
+            method: 'POST',
+        })
+    } catch (err) {
+        console.log(err.data)
+    } finally {
+        window.location.pathname = '/'
+    }
+}
 </script>
 
 <style>
-    .router-link-active {
-        font-weight: bold;
-    }
+.router-link-active {
+    font-weight: bold;
+}
 </style>
